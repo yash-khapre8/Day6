@@ -1,0 +1,224 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      padding: 20px;
+      background: #1e1e2f;
+      color: #e0e0f0;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .example {
+      margin-bottom: 40px;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 10px 16px;
+      cursor: pointer;
+      background-color: #5c6bc0;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #3f51b5;
+    }
+
+    .box, .button-box {
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .box {
+      padding: 20px;
+      border-radius: 8px;
+      background-color: #394867;
+      transition: transform 0.2s;
+    }
+
+    .box:hover {
+      transform: scale(1.02);
+    }
+
+    .button-box {
+      background-color: #5c5470;
+    }
+
+    .box1 { background-color: #9b59b6; }
+    .box2 { background-color: #1abc9c; }
+    .box3 { background-color: #e74c3c; }
+
+    .flex-container {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+
+    .flex-box {
+      padding: 20px;
+      color: white;
+      font-weight: bold;
+      text-align: center;
+      border-radius: 8px;
+      flex: 1 1 200px;
+      min-width: 150px;
+      transition: transform 0.3s;
+    }
+
+    .flex-box:hover {
+      transform: scale(1.05);
+    }
+
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #ffffff33;
+      border: 1px solid #999;
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 0.9em;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<button class="theme-toggle" onclick="toggleTheme()">🌗 Toggle Theme</button>
+
+<h2> Practice Set 1: <code>padding</code> (Space Inside the Element)</h2>
+
+<div class="example">
+  <h3> Practice 1.1: Basic Padding Box</h3>
+  <div id="box1" class="box box1">
+    This box has 20px padding on all sides.
+  </div>
+  <button onclick="document.getElementById('box1').style.padding = '10px 30px'">
+    Try: Change to <code>padding: 10px 30px;</code>
+  </button>
+</div>
+
+<div class="example">
+  <h3> Practice 1.2: Padding for a Button</h3>
+  <button id="button1" class="button-box" style="padding: 10px 20px;">Click Me</button><br>
+  <button onclick="document.getElementById('button1').style.padding = '20px 40px'">
+    Try: Make it more clickable!
+  </button>
+</div>
+
+<div class="example">
+  <h3> Practice 1.3: Different Padding Sides</h3>
+  <div id="box3" class="box box3" style="padding-top: 30px; padding-left: 10px;">
+    Top padding is more!
+  </div>
+  <button onclick="document.getElementById('box3').style.padding = '30px 10px 5px 0'">
+    Try: Use <code>padding: 30px 10px 5px 0;</code>
+  </button>
+</div>
+
+<h2> Practice Set 2: <code>margin</code> (Space Outside the Element)</h2>
+
+<div class="example">
+  <h3> Practice 2.1: Margin Between Two Boxes</h3>
+  <div id="boxA" class="box box2" style="margin-bottom: 20px;">
+    First box
+  </div>
+  <div class="box box2">Second box</div>
+  <button onclick="document.getElementById('boxA').style.marginBottom = '50px'">
+     Try: Increase <code>margin-bottom</code> to 50px
+  </button>
+</div>
+
+<div class="example">
+  <h3>🔹 Practice 2.2: Auto Margin Centering</h3>
+  <div id="centerBox" class="box box3" style="width: 200px; margin: auto;">
+    Centered Box
+  </div>
+  <button onclick="document.getElementById('centerBox').style.border = '2px solid limegreen'">
+    ✅ Try: Add border to see actual size
+  </button>
+</div>
+
+<div class="example">
+  <h3>🔹 Practice 2.3: Margin on All Sides</h3>
+  <p id="marginBox" class="box box1" style="margin: 30px;">
+    Margins make room outside the element.
+  </p>
+  <button onclick="document.getElementById('marginBox').style.margin = '30px 10px'">
+    Try: Change margin to <code>30px 10px</code>
+  </button>
+  <button onclick="document.getElementById('marginBox').style.margin = '0 auto'">
+    Try: Use <code>margin: 0 auto</code> to center
+  </button>
+</div>
+
+<h2> Practice Set 3: <code>flexbox</code> (Smart Layouts)</h2>
+
+<div class="example">
+  <h3> Practice 3.1: Simple Horizontal Layout</h3>
+  <div id="flex1" class="flex-container" style="justify-content: flex-start;">
+    <div class="flex-box" style="background: #ff7f50;">Box 1</div>
+    <div class="flex-box" style="background: #20b2aa;">Box 2</div>
+  </div>
+  <button onclick="addFlexBox()">Try: Add another box</button>
+  <button onclick="document.getElementById('flex1').style.justifyContent = 'space-between'">
+    Try: Use <code>justify-content: space-between</code>
+  </button>
+</div>
+
+<div class="example">
+  <h3> Practice 3.2: Centering with Flex</h3>
+  <div id="flex2" class="flex-container" style="height: 100px; justify-content: center; align-items: center;">
+    <div class="flex-box" style="background: tomato;">Centered</div>
+  </div>
+  <button onclick="document.getElementById('flex2').style.alignItems = 'flex-start'">
+    Try: <code>align-items: flex-start</code>
+  </button>
+  <button onclick="document.getElementById('flex2').style.alignItems = 'flex-end'">
+    Try: <code>align-items: flex-end</code>
+  </button>
+</div>
+
+<div class="example">
+  <h3> Practice 3.3: Responsive Columns</h3>
+  <div class="flex-container">
+    <div class="flex-box" style="background: #5dade2;">Column 1</div>
+    <div class="flex-box" style="background: #f1948a;">Column 2</div>
+    <div class="flex-box" style="background: #d5dbdb;">Column 3</div>
+  </div>
+  <p><strong>Try:</strong> Resize the screen to see them wrap!</p>
+</div>
+
+<script>
+  function addFlexBox() {
+    const flexContainer = document.getElementById('flex1');
+    const newBox = document.createElement('div');
+    newBox.className = 'flex-box';
+    newBox.style.background = '#9370db';
+    newBox.innerText = 'Box ' + (flexContainer.children.length + 1);
+    flexContainer.appendChild(newBox);
+  }
+
+  function toggleTheme() {
+    const body = document.body;
+    if (body.style.background === 'white') {
+      body.style.background = '#1e1e2f';
+      body.style.color = '#e0e0f0';
+    } else {
+      body.style.background = 'white';
+      body.style.color = '#333';
+    }
+  }
+</script>
+
+</body>
+</html>
